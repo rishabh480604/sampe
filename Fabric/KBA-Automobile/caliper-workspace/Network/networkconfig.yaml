@@ -1,0 +1,33 @@
+name: Caliper test
+version: "2.0.0"
+
+
+caliper:
+  blockchain: fabric
+
+
+channels:
+- channelName: autochannel
+  contracts:
+   - id: KBA-Automobile
+
+
+organizations:
+- mspid: ManufacturerMSP
+  identities:
+    certificates:
+    - name: 'User1'
+      clientPrivateKey:
+        path: '../Automobile-network/organizations/peerOrganizations/manufacturer.auto.com/users/User1@manufacturer.auto.com/msp/keystore/9db525555bfc397f3353423e2141f9c76503e4ac7808b4f25ad10fe0e2328dcf_sk'
+      clientSignedCert:
+        path: '../Automobile-network/organizations/peerOrganizations/manufacturer.auto.com/users/User1@manufacturer.auto.com/msp/signcerts/cert.pem'
+  peers:
+      - endpoint: localhost:7051
+        grpcOptions:
+          ssl-target-name-override: peer0.manufacturer.auto.com
+          grpc.keepalive_time_ms: 600000
+        tlsCACerts:
+          path: '../Automobile-network/organizations/peerOrganizations/manufacturer.auto.com/peers/peer0.manufacturer.auto.com/tls/tlscacerts/tls-localhost-7054-ca-manufacturer.pem'
+
+
+   
