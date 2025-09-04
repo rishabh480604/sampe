@@ -15,7 +15,7 @@ organizations:
      certificates:
      - name: 'User1'
        clientPrivateKey:
-         path: '../KBA-Automobile/Automobile-network/organizations/peerOrganizations/manufacturer.auto.com/users/User1@manufacturer.auto.com/msp/keystore/fb3ed284ba796bc80ee09c37ece3e39e0d0bc529b5efa56bb2a5aeef348fa3de_sk'
+         path: '../KBA-Automobile/Automobile-network/organizations/peerOrganizations/manufacturer.auto.com/users/User1@manufacturer.auto.com/msp/keystore/6716a11a7afcba4a1b617cfe782df7aeada3cec96f697dfa737263064acfffbe_sk'
        clientSignedCert:
          path: '../KBA-Automobile/Automobile-network/organizations/peerOrganizations/manufacturer.auto.com/users/User1@manufacturer.auto.com/msp/signcerts/cert.pem'
    peers:

@@ -4,7 +4,7 @@ test:
     workers:
       number: 3
     rounds:
-      - label: readAsset
+      - label: vickrey_auction_game
         description: Read asset benchmark
         txDuration: 30
         rateControl:

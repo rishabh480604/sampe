@@ -134,7 +134,7 @@
             <ul>
                 <h3>&nbspBenchmark results</h3>
                 <li><a href="#benchmarksummary">Summary</a></li>
-                    <li><a href="#readAsset">readAsset</a></li>
+                    <li><a href="#vickrey_auction_game">vickrey_auction_game</a></li>
             </ul>
             <ul>
                 <h3>&nbspSystem under test</h3>
@@ -152,12 +152,12 @@
                     </tr>
 
                     <tr>
-                         <td>readAsset</td> <td>6726</td> <td>0</td> <td>228.7</td> <td>0.08</td> <td>0.00</td> <td>0.01</td> <td>228.6</td>
+                         <td>vickrey_auction_game</td> <td>56</td> <td>0</td> <td>1.8</td> <td>3.28</td> <td>1.18</td> <td>2.42</td> <td>1.6</td>
                     </tr>
                 </table>
             </div>
-            <div style="border-bottom: 1px solid #d9d9d9; padding-bottom: 10px;" id="readAsset">
-                <h2>Benchmark round: readAsset</h2>
+            <div style="border-bottom: 1px solid #d9d9d9; padding-bottom: 10px;" id="vickrey_auction_game">
+                <h2>Benchmark round: vickrey_auction_game</h2>
                 <p>Read asset benchmark</p>
                 <pre style="overflow: visible;white-space: pre-wrap;max-height:100%;">txDuration: 30
 rateControl:
@@ -165,16 +165,16 @@ rateControl:
   opts:
     transactionLoad: 2
 </pre>
-                        <h3>Performance metrics for readAsset</h3>
+                        <h3>Performance metrics for vickrey_auction_game</h3>
                             <table style="min-width: 100%;">
                                 <tr>
                                      <th>Name</th> <th>Succ</th> <th>Fail</th> <th>Send Rate (TPS)</th> <th>Max Latency (s)</th> <th>Min Latency (s)</th> <th>Avg Latency (s)</th> <th>Throughput (TPS)</th>
                                 </tr>
                                 <tr>
-                                     <td>readAsset</td> <td>6726</td> <td>0</td> <td>228.7</td> <td>0.08</td> <td>0.00</td> <td>0.01</td> <td>228.6</td>
+                                     <td>vickrey_auction_game</td> <td>56</td> <td>0</td> <td>1.8</td> <td>3.28</td> <td>1.18</td> <td>2.42</td> <td>1.6</td>
                                 </tr>
                             </table>
-                        <h3>Resource utilization for readAsset</h3>
+                        <h3>Resource utilization for vickrey_auction_game</h3>
             </div>
 
             <div style="border-bottom: 1px solid #d9d9d9; padding-bottom: 10px;">
@@ -185,7 +185,7 @@ description: test benchmark
 workers:
   number: 3
 rounds:
-  - label: readAsset
+  - label: vickrey_auction_game
     description: Read asset benchmark
     txDuration: 30
     rateControl:

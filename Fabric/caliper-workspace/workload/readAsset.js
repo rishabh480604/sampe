@@ -8,71 +8,37 @@ class MyWorkload extends WorkloadModuleBase {
     }
 
     /**
-     * Initialize the workload module
+     * Initialize workload module
      */
     async initializeWorkloadModule(workerIndex, totalWorkers, roundIndex, roundArguments, sutAdapter, sutContext) {
         await super.initializeWorkloadModule(workerIndex, totalWorkers, roundIndex, roundArguments, sutAdapter, sutContext);
-
-        // Pre-create assets
-        for (let i = 0; i < this.roundArguments.assets; i++) {
-            const assetID = `${this.workerIndex}_${i}`;
-            console.log(`Worker ${this.workerIndex}: Creating car ${assetID}`);
-
-            const request = {
-                contractId: this.roundArguments.contractId,  // should match your chaincode name
-                contractFunction: 'CreateCar',             // matched Go chaincode function
-                invokerIdentity: 'User1',
-                contractArguments: [
-                    assetID,           // carID
-                    'Toyota',          // make
-                    'Corolla',         // model
-                    'Blue',            // color
-                    'ManufacturerCo',  // manufacturerName
-                    '2025-09-01'       // dateOfManufacture
-                ],
-                readOnly: false
-            };
-
-            await this.sutAdapter.sendRequests(request);
-        }
+        console.log(`Worker ${this.workerIndex}: Initialization complete`);
     }
 
     /**
-     * Submit transaction during workload
+     * Submit auction transaction
      */
     async submitTransaction() {
-        const randomId = Math.floor(Math.random() * this.roundArguments.assets);
-        const carID = `${this.workerIndex}_${randomId}`;
-
-        const myArgs = {
-            contractId: this.roundArguments.contractId,
-            contractFunction: 'ReadCar', // matched Go chaincode function
+        const request = {
+            contractId: this.roundArguments.contractId,  // should match your deployed chaincode name
+            contractFunction: 'MapBuyersToSellers',
             invokerIdentity: 'User1',
-            contractArguments: [carID],
-            readOnly: true
+            contractArguments: [
+                'https://raw.githubusercontent.com/rishabh480604/sampe/refs/heads/main/50_seller_data_tsv.txt', // seller_url
+                'https://raw.githubusercontent.com/rishabh480604/sampe/refs/heads/main/190_buyer_data_tsv.txt'  // buyer_url
+            ],
+            readOnly: false
         };
 
-        await this.sutAdapter.sendRequests(myArgs);
+        console.log(`Worker ${this.workerIndex}: Submitting MapBuyersToSellers transaction`);
+        await this.sutAdapter.sendRequests(request);
     }
 
     /**
-     * Cleanup workload module (delete assets)
+     * Cleanup workload module
      */
     async cleanupWorkloadModule() {
-        for (let i = 0; i < this.roundArguments.assets; i++) {
-            const assetID = `${this.workerIndex}_${i}`;
-            console.log(`Worker ${this.workerIndex}: Deleting car ${assetID}`);
-
-            const request = {
-                contractId: this.roundArguments.contractId,
-                contractFunction: 'DeleteCar', // matched Go chaincode function
-                invokerIdentity: 'User1',
-                contractArguments: [assetID],
-                readOnly: false
-            };
-
-            await this.sutAdapter.sendRequests(request);
-        }
+        console.log(`Worker ${this.workerIndex}: Cleanup complete`);
     }
 }
 
