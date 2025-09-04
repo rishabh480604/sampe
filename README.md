@@ -77,12 +77,16 @@ npm install --only=prod @hyperledger/caliper-cli@0.5.0
 npx caliper bind --caliper-bind-sut fabric:2.4
 ```
 
-## npx caliper launch manager \
+## Caliper run command
+npx caliper launch manager \
   --caliper-workspace ./ \
   --caliper-networkconfig networks/networkConfig.yaml \
   --caliper-benchconfig benchmarks/myAssetBenchmark.yaml \
   --caliper-flow-only-test \
   --caliper-fabric-gateway-enabled
+
+  ## dataset will be raw file of github
+  ex https://raw.githubusercontent.com/rishabh480604/sampe/refs/heads/main/<file_name.txt>
 
 
 

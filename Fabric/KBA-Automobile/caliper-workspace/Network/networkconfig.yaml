@@ -1,33 +1,27 @@
 name: Caliper test
 version: "2.0.0"
-
-
+ 
 caliper:
-  blockchain: fabric
-
-
+ blockchain: fabric
+ 
 channels:
-- channelName: autochannel
-  contracts:
+ - channelName: autochannel
+   contracts:
    - id: KBA-Automobile
-
-
+ 
 organizations:
-- mspid: ManufacturerMSP
-  identities:
-    certificates:
-    - name: 'User1'
-      clientPrivateKey:
-        path: '../Automobile-network/organizations/peerOrganizations/manufacturer.auto.com/users/User1@manufacturer.auto.com/msp/keystore/9db525555bfc397f3353423e2141f9c76503e4ac7808b4f25ad10fe0e2328dcf_sk'
-      clientSignedCert:
-        path: '../Automobile-network/organizations/peerOrganizations/manufacturer.auto.com/users/User1@manufacturer.auto.com/msp/signcerts/cert.pem'
-  peers:
+ - mspid: ManufacturerMSP
+   identities:
+     certificates:
+     - name: 'User1'
+       clientPrivateKey:
+         path: '../KBA-Automobile/Automobile-network/organizations/peerOrganizations/manufacturer.auto.com/users/User1@manufacturer.auto.com/msp/keystore/652922cab3f92d4c19f1a362659c95459e95ca9064ce5ebdb32ada9e91521ff3_sk'
+       clientSignedCert:
+         path: '../KBA-Automobile/Automobile-network/organizations/peerOrganizations/manufacturer.auto.com/users/User1@manufacturer.auto.com/msp/signcerts/cert.pem'
+   peers:
       - endpoint: localhost:7051
         grpcOptions:
           ssl-target-name-override: peer0.manufacturer.auto.com
           grpc.keepalive_time_ms: 600000
         tlsCACerts:
-          path: '../Automobile-network/organizations/peerOrganizations/manufacturer.auto.com/peers/peer0.manufacturer.auto.com/tls/tlscacerts/tls-localhost-7054-ca-manufacturer.pem'
-
-
-   
+          path: '../KBA-Automobile/Automobile-network/organizations/peerOrganizations/manufacturer.auto.com/peers/peer0.manufacturer.auto.com/msp/cacerts/localhost-7054-ca-manufacturer.pem'  
